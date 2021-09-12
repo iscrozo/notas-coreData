@@ -83,4 +83,20 @@ extension Home: UITableViewDataSource {
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Eliminar") { (_, _, _) in
+            print("Eliminar")
+        }
+        delete.image = UIImage(systemName: "trash")
+        let editar = UIContextualAction(style: .normal, title: "Editar") { (_, _, _) in
+            print("Editar")
+        }
+        
+        editar.backgroundColor = .systemBlue
+        editar.image = UIImage(systemName: "pencil")
+        return UISwipeActionsConfiguration(actions: [editar, delete])
+    }
 }
+
+
