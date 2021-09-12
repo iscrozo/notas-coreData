@@ -71,6 +71,16 @@ extension Home: UITableViewDataSource {
         return notas.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cellDefault = UITableViewCell()
+        let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let notas = notas[indexPath.row]
+        cell.textLabel?.text = notas.titulo
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .medium
+        dateFormatter.locale = Locale.current
+        cell.detailTextLabel?.text = dateFormatter.string(from: notas.fecha ?? Date())
+        return cell
+        
     }
 }
