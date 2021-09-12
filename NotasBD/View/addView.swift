@@ -8,22 +8,22 @@
 import UIKit
 
 class addView: UIViewController {
-
+    
+    //MARK: - references outlets
+    @IBOutlet weak var titulo: UITextField!
+    @IBOutlet weak var nota: UITextView!
+    @IBOutlet weak var fecha: UIDatePicker!
+    @IBOutlet weak var boton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - references actions
+    @IBAction func guardar (_ sender: UIButton) {
+        Modelo.shared.saveData(titulo: titulo.text ?? "", nota: nota.text, fecha: fecha.date)
     }
-    */
 
 }
