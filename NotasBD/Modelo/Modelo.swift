@@ -33,5 +33,17 @@ class Modelo {
         }
     }
     
-    
+    func editData(asTitulo: String, asNota: String, adFecha: Date, notas: Notas) {
+        let context = contexto()
+        notas.setValue(asTitulo, forKey: "titulo")
+        notas.setValue(asNota, forKey: "nota")
+        notas.setValue(adFecha, forKey: "fecha")
+        
+        do {
+            try context.save()
+            print("Edito registro ")
+        } catch let error as NSError {
+            print("Error en editData -> no guardo, \(error.localizedDescription)")
+        }
+    }
 }

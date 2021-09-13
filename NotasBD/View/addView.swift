@@ -28,8 +28,13 @@ class addView: UIViewController {
     
     //MARK: - references actions
     @IBAction func guardar (_ sender: UIButton) {
-        Modelo.shared.saveData(titulo: titulo.text ?? "", nota: nota.text, fecha: fecha.date)
-        navigationController?.popViewController(animated: true)
+        if notas != nil {
+            Modelo.shared.editData(asTitulo: titulo.text ?? "", asNota: nota.text, adFecha: fecha.date, notas: notas!)
+            navigationController?.popViewController(animated: true)
+        } else {
+            Modelo.shared.saveData(titulo: titulo.text ?? "", nota: nota.text, fecha: fecha.date)
+            navigationController?.popViewController(animated: true)
+        }
     }
 
 }
