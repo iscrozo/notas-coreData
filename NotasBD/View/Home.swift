@@ -71,7 +71,7 @@ extension Home: UITableViewDataSource {
         return notas.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellDefault = UITableViewCell()
+//        let cellDefault = UITableViewCell()
         let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let notas = notas[indexPath.row]
         cell.textLabel?.text = notas.titulo
@@ -87,10 +87,19 @@ extension Home: UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "Eliminar") { (_, _, _) in
             print("Eliminar")
+            let contexto = Modelo.shared.contexto()
+            let borrar = self.fetchResultController.object(at: indexPath)
+            contexto.delete(borrar)
+            do{
+                try contexto.save()
+            }catch let error as NSError {
+                print("no elimino \(error.localizedDescription)")
+            }
         }
         delete.image = UIImage(systemName: "trash")
         let editar = UIContextualAction(style: .normal, title: "Editar") { (_, _, _) in
             print("Editar")
+            
         }
         
         editar.backgroundColor = .systemBlue
