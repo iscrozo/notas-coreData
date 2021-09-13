@@ -62,8 +62,20 @@ class Home: UIViewController, NSFetchedResultsControllerDelegate {
 //MARK: - UITableViewDelegate
 extension Home: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        //print(indexPath.row)
+        performSegue(withIdentifier: "enviar", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "enviar" {
+            if let id = tabla.indexPathForSelectedRow{
+                let fila = notas[id.row]
+                let destino = segue.destination as! addView
+                destino.notas = fila
+            }
+        }
+    }
+    
 }
 //MARK: -UITableViewDataSource
 extension Home: UITableViewDataSource {

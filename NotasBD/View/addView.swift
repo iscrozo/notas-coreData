@@ -15,10 +15,15 @@ class addView: UIViewController {
     @IBOutlet weak var fecha: UIDatePicker!
     @IBOutlet weak var boton: UIButton!
     
+    var notas: Notas!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.title = notas != nil ? "Editar Nota" : "Crear Nota"
+        titulo.text = notas?.titulo
+        nota.text = notas?.nota
+        fecha.date = notas?.fecha ?? Date()
     }
     
     //MARK: - references actions

@@ -65,6 +65,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tabla" destination="XKU-uw-4Zd" id="s2I-sq-IoB"/>
+                        <segue destination="YN0-E9-giB" kind="show" identifier="enviar" id="Bhb-rF-gCw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -140,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42e-c2-fgf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1666.6666666666667" y="112.5"/>
+            <point key="canvasLocation" x="1665" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JKq-TB-Zwg">
@@ -165,6 +166,9 @@
             <point key="canvasLocation" x="34.782608695652179" y="100.44642857142857"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Bhb-rF-gCw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
